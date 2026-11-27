@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Calculator</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="container mt-5">
+
+        <div class="row justify-content-center">
+
+            <div class="col-md-5 col-lg-4">
+
+                <div class="border border-secondary rounded p-4">
+
+                    <h2 class="text-center mb-4">Calculator</h2>
+
+                    <!-- Display -->
+                    <input class="form-control text-end mb-3"
+                        type="text"
+                        id="res"
+                        placeholder="0"
+                        readonly>
+
+                    <!-- Input Fields -->
+                    <div class="row mb-3">
+
+                        <div class="col-6">
+                            <input class="form-control"
+                                type="number"
+                                id="txt1"
+                                onclick="Inputbox('txt1')"
+                                onfocus="Inputbox('txt1')"
+                                placeholder="First">
+                        </div>
+
+                        <div class="col-6">
+                            <input class="form-control"
+                                type="number"
+                                id="txt2"
+                                onclick="Inputbox('txt2')"
+                                onfocus="Inputbox('txt2')"
+                                placeholder="Second">
+                        </div>
+
+                    </div>
+
+                    <!-- Operation Buttons -->
+                    <div class="row g-2 mb-3">
+
+                        <div class="col-3">
+                            <button class="btn btn-info w-100" onclick="add()">+</button>
+                        </div>
+
+                        <div class="col-3">
+                            <button class="btn btn-info w-100" onclick="sub()">-</button>
+                        </div>
+
+                        <div class="col-3">
+                            <button class="btn btn-info w-100" onclick="multi()">*</button>
+                        </div>
+
+                        <div class="col-3">
+                            <button class="btn btn-info w-100" onclick="divi()">/</button>
+                        </div>
+
+                    </div>
+
+                    <!-- Number Buttons -->
+                    <div class="row g-2">
+
+                        <div class="col-4">
+                            <button class="btn btn-secondary w-100" onclick="num(7)">7</button>
+                        </div>
+
+                        <div class="col-4">
+                            <button class="btn btn-secondary w-100" onclick="num(8)">8</button>
+                        </div>
+
+                        <div class="col-4">
+                            <button class="btn btn-secondary w-100" onclick="num(9)">9</button>
+                        </div>
+
+                        <div class="col-4">
+                            <button class="btn btn-secondary w-100" onclick="num(4)">4</button>
+                        </div>
+
+                        <div class="col-4">
+                            <button class="btn btn-secondary w-100" onclick="num(5)">5</button>
+                        </div>
+
+                        <div class="col-4">
+                            <button class="btn btn-secondary w-100" onclick="num(6)">6</button>
+                        </div>
+
+                        <div class="col-4">
+                            <button class="btn btn-secondary w-100" onclick="num(1)">1</button>
+                        </div>
+
+                        <div class="col-4">
+                            <button class="btn btn-secondary w-100" onclick="num(2)">2</button>
+                        </div>
+
+                        <div class="col-4">
+                            <button class="btn btn-secondary w-100" onclick="num(3)">3</button>
+                        </div>
+
+                        <div class="col-4">
+                            <button class="btn btn-secondary w-100" onclick="num(0)">0</button>
+                        </div>
+
+                        <div class="col-8">
+                            <button class="btn btn-danger w-100" onclick="clr()">Clear</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        function add() {
+
+            if (document.getElementById("txt1").value == "" || document.getElementById("txt2").value == "") {
+                alert("Please provide proper inputs");
+                return;
+            }
+
+            let a = parseInt(document.getElementById("txt1").value);
+            let b = parseInt(document.getElementById("txt2").value);
+            let c = a + b;
+
+            document.getElementById("res").value = c;
+        }
+
+        function sub() {
+
+            if (document.getElementById("txt1").value == "" || document.getElementById("txt2").value == "") {
+                alert("Please provide proper inputs");
+                return;
+            }
+
+            let a = parseInt(document.getElementById("txt1").value);
+            let b = parseInt(document.getElementById("txt2").value);
+            let d = a - b;
+
+            document.getElementById("res").value = d;
+        }
+
+        function multi() {
+
+            if (document.getElementById("txt1").value == "" || document.getElementById("txt2").value == "") {
+                alert("Please provide proper inputs");
+                return;
+            }
+
+            let a = parseInt(document.getElementById("txt1").value);
+            let b = parseInt(document.getElementById("txt2").value);
+            let e = a * b;
+
+            document.getElementById("res").value = e;
+        }
+
+        function divi() {
+
+            if (document.getElementById("txt1").value == "" || document.getElementById("txt2").value == "") {
+                alert("Please provide proper inputs");
+                return;
+            }
+
+            let a = parseInt(document.getElementById("txt1").value);
+            let b = parseInt(document.getElementById("txt2").value);
+
+            let f = a / b;
+
+            document.getElementById("res").value = f;
+        }
+
+        function clr() {
+
+            document.getElementById("txt1").value = "";
+            document.getElementById("txt2").value = "";
+            document.getElementById("res").value = "";
+
+        }
+
+        function Inputbox(id) {
+
+            Input = id;
+
+        }
+
+        function num(num) {
+
+            document.getElementById(Input).value += num;
+
+        }
+
+    </script>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
